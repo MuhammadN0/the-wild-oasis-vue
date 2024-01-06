@@ -1,5 +1,7 @@
 <template>
-  <aside class="bg-gray-50 pt-20 col-span-1 row-span-full border-r border-r-gray-200">
+  <aside
+    class="bg-gray-50 pt-20 col-span-1 row-span-full border-r border-r-gray-200"
+  >
     <div class="max-w-40 mx-auto mb-10">
       <img src="@/assets/logo-light.png" />
     </div>
@@ -18,7 +20,7 @@
             class="flex rounded w-full hover:bg-gray-100 items-center gap-3 font-medium px-3 py-2"
             :to="{ name: 'bookings' }"
           >
-          <i class="fa-regular fa-calendar-check fa-lg"></i> Bookings
+            <i class="fa-regular fa-calendar-check fa-lg"></i> Bookings
           </RouterLink>
         </li>
         <li class="[&>*>i]:hover:text-violet-600 w-full mb-2">
@@ -45,7 +47,6 @@
             <i class="fa-solid fa-gear fa-lg"></i> Settings
           </RouterLink>
         </li>
-
       </ul>
     </nav>
   </aside>

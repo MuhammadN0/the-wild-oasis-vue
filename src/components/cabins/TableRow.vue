@@ -13,12 +13,12 @@
     </div>
     <div class="flex justify-end pr-3">
       <button
-        @click.prevent.self="isOpen = !isOpen"
+        @click.prevent="isOpen = !isOpen"
         ref="modal"
         class="border-gray-200 hover:bg-gray-200 px-2 rounded relative"
         :class="{ ' bg-gray-200': isOpen }"
       >
-        <i class="fa-solid fa-ellipsis-vertical"></i>
+        <i ref="dots" class="fa-solid fa-ellipsis-vertical"></i>
         <OptionsMenu v-if="isOpen" :cabin="cabin" />
       </button>
     </div>
@@ -26,8 +26,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onUnmounted } from 'vue';
 import OptionsMenu from './OptionsMenu.vue';
 const { cabin } = defineProps(['cabin']);
 const isOpen = ref(false);
+const modal = ref(null);
+const dots = ref(null)
+function detectClick(e) {
+  e.stopPropagation();
+  if (e.target !== modal.value) isOpen.value = false;
+  if (e.target === modal.value) isOpen.value = true;
+  if (e.target === dots.value) isOpen.value = true;
+}
+window.addEventListener('click', detectClick, false);
+onUnmounted(() => window.removeEventListener('click', detectClick, false));
 </script>
