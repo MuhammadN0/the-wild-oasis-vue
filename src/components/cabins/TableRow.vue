@@ -19,18 +19,15 @@
         :class="{ ' bg-gray-200': isOpen }"
       >
         <i class="fa-solid fa-ellipsis-vertical"></i>
-        <OptionsMenu  v-if="isOpen" :closeModal="closeModal" />
+        <OptionsMenu v-if="isOpen" :cabin="cabin" />
       </button>
     </div>
   </div>
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue';
 import OptionsMenu from './OptionsMenu.vue';
 const { cabin } = defineProps(['cabin']);
-const isOpen = ref(false)
-function closeModal() {
-  isOpen.value = false;
-}
+const isOpen = ref(false);
 </script>

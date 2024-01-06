@@ -10,29 +10,18 @@
       <div class="col-span-2">Price</div>
       <div class="col-span-3">Discount</div>
     </div>
-    <TableRow v-for="cabin in cabins" :key="cabin.id" :cabin="cabin" />
+    <TableRow v-for="cabin in cabinsStore.cabins" :key="cabin.id" :cabin="cabin" />
   </div>
-  <button @click.prevent="showForm = true" class="bg-violet-600 text-white text-sm rounded-md px-3 py-2 hover:bg-violet-800">
+  <button @click.prevent="modalStore.startAddCabin" class="bg-violet-600 text-white text-sm rounded-md px-3 py-2 hover:bg-violet-800">
     Add new Cabin
   </button>
-  <AddCabinForm v-if="showForm" :closeForm="closeForm" />
 </template>
 
 <script setup>
-import {ref,watch} from 'vue'
 import TableHeader from './TableHeader.vue';
 import TableRow from './TableRow.vue';
-import AddCabinForm from './AddCabinForm.vue'
-import useCabins from '@/hooks/useCabins'
 import useModalStore from '@/stores/modal'
+import useCabinsStore from '@/stores/cabins'
 const modalStore = useModalStore();
-const showForm = ref(false)
-function closeForm () {
-  showForm.value = false;
-}
-watch(showForm,() => {
-  if(showForm.value === false) getCabins();
-})
-const {cabins,getCabins} = useCabins();
-getCabins()
+const cabinsStore = useCabinsStore();
 </script>

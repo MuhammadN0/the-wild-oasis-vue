@@ -4,9 +4,14 @@
   <main class="bg-gray-100 row-span-11 col-span-5 p-12 overflow-y-scroll">
     <RouterView />
   </main>
+  <Modal />
 </template>
 
 <script setup>
 import Sidebar from '@/components/ui/Sidebar.vue';
 import Navbar from '@/components/ui/Navbar.vue';
+import useCabinsStore from '@/stores/cabins'
+import Modal from './components/ui/Modal.vue';
+const cabinsStore = useCabinsStore();
+cabinsStore.getCabins();
 </script>

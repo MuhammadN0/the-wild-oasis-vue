@@ -1,16 +1,19 @@
 <template>
-  <div
-    class="absolute top-0 left-0 h-full w-full z-40 backdrop-filter backdrop-blur-sm bg-gray-300 bg-opacity-20 flex justify-center items-center"
-    @click.self.prevent="props.closeForm"
-  >
+
     <Form
+      v-if="modalStore.state === 'addingCabin' || modalStore.state === 'editingCabin'"
       @submit="submitForm"
-      class="bg-gray-50 p-10 rounded-lg shadow-xl"
+      class="bg-gray-50 p-10 rounded-lg shadow-xl z-50"
       :validation-schema="schema"
+      :initial-values="
+        modalStore.state === 'editingCabin' && modalStore.currentCabin
+      "
     >
       <div class="px-3 text-xl mb-5 flex justify-between items-center">
-        <h1 class="">Add a cabin</h1>
-        <button @click.prevent="closeForm" class="text-3xl">&times;</button>
+        <h1>{{modalStore.state === 'addingCabin' ? 'Add a cabin' : "Update Cabin"}}</h1>
+        <button @click.prevent="modalStore.reset" class="text-3xl">
+          &times;
+        </button>
       </div>
 
       <div class="grid grid-cols-3 items-center border-b p-3 border-gray-200">
@@ -87,7 +90,7 @@
 
       <div class="flex justify-end gap-3">
         <button
-          @click.prevent="closeForm"
+          @click.prevent="modalStore.reset"
           class="border-2 border-gray-600 px-3 py-2 rounded"
         >
           Cancel
@@ -102,7 +105,6 @@
         </button>
       </div>
     </Form>
-  </div>
 </template>
 
 <script setup>
@@ -110,17 +112,19 @@ import { ref } from 'vue';
 import { storage, cabinsCollection } from '@/firebase/config';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import Spinner from '../ui/Spinner.vue';
-const props = defineProps(['closeForm']);
+import useModalStore from '@/stores/modal';
+const modalStore = useModalStore();
 const isLoading = ref(false);
 const schema = ref({
   name: 'required',
   maxCapacity: 'required|min_value:1',
   regularPrice: 'required|min_value:1',
   discount: 'required|min_value:0',
-  image: 'required',
+  image: modalStore.state === 'editingCabin' ? '' : 'required',
   description: 'required',
 });
 async function submitForm(values) {
+  if (modalStore.state === 'addingCabin') {
   try {
     isLoading.value = true;
     const cabinsRef = storage.ref();
@@ -134,7 +138,32 @@ async function submitForm(values) {
     console.log(error.message);
   } finally {
     isLoading.value = false;
-    props.closeForm();
+    modalStore.reset();
+  }
+} else {
+  await editCabin(values)
+}
+}
+async function editCabin(values) {
+  try {
+    let url;
+    isLoading.value = true;
+    if (values.image.name) {
+      const cabinsRef = storage.ref();
+      const imageRef = cabinsRef.child(
+        `cabins/${values.image.name}-${Math.random()}`
+      );
+      const fileUpload = await imageRef.put(values.image);
+      url = await fileUpload.ref.getDownloadURL();
+    }
+    await cabinsCollection
+      .doc(modalStore.currentCabin.id)
+      .update({ ...values, image: url ? url : modalStore.currentCabin.image });
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+    isLoading.value = false;
+    modalStore.reset();
   }
 }
 </script>
