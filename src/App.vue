@@ -10,8 +10,11 @@
 <script setup>
 import Sidebar from '@/components/ui/Sidebar.vue';
 import Navbar from '@/components/ui/Navbar.vue';
-import useCabinsStore from '@/stores/cabins'
+import useCabinsStore from '@/stores/cabins';
+import useSettingsStore from '@/stores/settings';
 import Modal from './components/ui/Modal.vue';
 const cabinsStore = useCabinsStore();
 cabinsStore.getCabins();
+const settingsStore = useSettingsStore();
+settingsStore.getSettings();
 </script>
