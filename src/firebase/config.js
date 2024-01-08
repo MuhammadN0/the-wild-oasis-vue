@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-import 'firebase/storage'
+import 'firebase/storage';
 const firebaseConfig = {
   apiKey: 'AIzaSyBvkIpOEUQpy33yu6k6KVnocxhzojLsMmE',
   authDomain: 'the-wild-oasis-72431.firebaseapp.com',
@@ -14,5 +14,5 @@ firebase.initializeApp(firebaseConfig);
 export const db = firebase.firestore();
 export const cabinsCollection = db.collection('cabins');
 export const auth = firebase.auth();
-export const storage = firebase.storage()
+export const storage = firebase.storage();
 export const timestamp = firebase.firestore.FieldValue.serverTimestamp;

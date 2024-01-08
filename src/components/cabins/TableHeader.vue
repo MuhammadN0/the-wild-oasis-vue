@@ -1,5 +1,5 @@
 <template>
-  <header class="mb-10">
+  <header class="mb-12">
     <div class="justify-between text-gray-800 items-center flex">
       <h1 class="text-3xl font-bold">Our Cabins</h1>
       <div class="flex gap-10">

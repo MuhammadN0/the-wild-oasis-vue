@@ -49,9 +49,11 @@
         </li>
       </ul>
     </nav>
+    <Uploader />
   </aside>
 </template>
 
-<script setup></script>
+<script setup>
+import Uploader from '@/data/Uploader.vue'
+</script>
 
-<style></style>

@@ -33,11 +33,8 @@ const isOpen = ref(false);
 const modal = ref(null);
 const dots = ref(null)
 function detectClick(e) {
-  e.stopPropagation();
-  if (e.target !== modal.value) isOpen.value = false;
-  if (e.target === modal.value) isOpen.value = true;
-  if (e.target === dots.value) isOpen.value = true;
+  if(!modal.value.contains(e.target)) isOpen.value = false
 }
-window.addEventListener('click', detectClick, false);
-onUnmounted(() => window.removeEventListener('click', detectClick, false));
+window.addEventListener('click', detectClick);
+onUnmounted(() => window.removeEventListener('click', detectClick));
 </script>
