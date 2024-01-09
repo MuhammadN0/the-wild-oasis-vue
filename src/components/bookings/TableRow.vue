@@ -28,7 +28,7 @@
     </div>
     <div class="col-span-2">
       <span
-        class="text-xs font-semibold px-2 uppercase py-1 rounded-full"
+        class="text-xs text-[10px] font-semibold px-2 uppercase py-1 rounded-full"
         :class="statusClass"
         >{{ booking.status }}</span
       >
@@ -80,11 +80,11 @@ const endDate = computed(() => format(booking.endDate, 'dd MMM yyyy'));
 const statusClass = computed(() => {
   switch (booking.status) {
     case 'unconfirmed':
-      return 'bg-blue-300 text-blue-800';
+      return 'bg-blue-100 text-blue-600';
     case 'checked-in':
-      return 'bg-green-300 text-green-800';
+      return 'bg-green-100 text-green-600';
     case 'checked-out':
-      return 'bg-gray-300 text-gray-800';
+      return 'bg-gray-200 text-gray-600';
     default:
       return '';
   }

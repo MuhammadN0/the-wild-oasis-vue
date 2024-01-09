@@ -15,7 +15,7 @@ export function sortByName(objs, order) {
 }
 
 export function sortByPrice(objs, order) {
-  const formettedObjs = objs.slice()
+  const formettedObjs = objs.slice();
   formettedObjs.sort((a, b) => {
     return order === 'lowFirst'
       ? a.regularPrice - b.regularPrice
@@ -24,11 +24,31 @@ export function sortByPrice(objs, order) {
   return formettedObjs;
 }
 export function sortByCapacity(objs, order) {
-  const formettedObjs = objs.slice()
+  const formettedObjs = objs.slice();
   formettedObjs.sort((a, b) => {
     return order === 'lowFirst'
       ? a.maxCapacity - b.maxCapacity
       : b.maxCapacity - a.maxCapacity;
+  });
+  return formettedObjs;
+}
+
+export function sortByDate(objs, order) {
+  const formattedObjs = objs.slice();
+  formattedObjs.sort((a, b) => {
+    return order === 'recent'
+      ? new Date(b.startDate) - new Date(a.startDate)
+      : new Date(a.startDate) - new Date(b.startDate);
+  });
+  return formattedObjs;
+}
+
+export function sortByBookingPrice(objs, order) {
+  const formettedObjs = objs.slice();
+  formettedObjs.sort((a, b) => {
+    return order === 'lowFirst'
+      ? a.totalPrice - b.totalPrice
+      : b.totalPrice - a.totalPrice;
   });
   return formettedObjs;
 }

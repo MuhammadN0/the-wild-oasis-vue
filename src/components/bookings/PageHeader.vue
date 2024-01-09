@@ -13,30 +13,31 @@
           </button>
           <button
             class="px-2 py-1 rounded-md hover:bg-violet-600 hover:text-white"
-            @click.prevent="changeFilter('without')"
-            :class="{ ' bg-violet-600 text-white': filter === 'without' }"
+            @click.prevent="changeFilter('checked-out')"
+            :class="{ ' bg-violet-600 text-white': filter === 'checked-out' }"
           >
-            No discount
+            Checked-out
           </button>
           <button
             class="px-2 rounded-md py-1 hover:bg-violet-600 hover:text-white"
-            @click.prevent="changeFilter('with')"
-            :class="{ ' bg-violet-600 text-white': filter === 'with' }"
+            @click.prevent="changeFilter('checked-in')"
+            :class="{ ' bg-violet-600 text-white': filter === 'checked-in' }"
           >
-            With disctount
+            Checked-in
+          </button>
+          <button
+            class="px-2 rounded-md py-1 hover:bg-violet-600 hover:text-white"
+            @click.prevent="changeFilter('unconfirmed')"
+            :class="{ ' bg-violet-600 text-white': filter === 'unconfirmed' }"
+          >
+            unconfirmed
           </button>
         </div>
         <select v-model="sort" class="px-5">
-          <option value="name|atz">Sort by Name (A-Z)</option>
-          <option value="name|zta">Sort by Name (Z-A)</option>
-          <option value="price|lowFirst">Sort by Price (Low first)</option>
-          <option value="price|highFirst">Sort by Price (High first)</option>
-          <option value="capacity|lowFirst">
-            Sort by Capacity (Low first)
-          </option>
-          <option value="capacity|highFirst">
-            Sort by Capacity (High first)
-          </option>
+          <option value="date|recent">Sort by date (recent first)</option>
+          <option value="date|early">Sort by date (earlier first)</option>
+          <option value="amount|highFirst">Sort by amount (high first)</option>
+          <option value="amount|lowFirst">Sort by amount (low first)</option>
         </select>
       </div>
     </div>
@@ -46,23 +47,24 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import useCabinsStore from '@/stores/cabins';
-const cabinsStore = useCabinsStore();
+import useBookingsStore from '@/stores/bookings';
+const bookingsStore = useBookingsStore();
 const route = useRoute();
 const router = useRouter();
-const sort = ref('name|atz');
+const sort = ref(route?.query?.sort ?? 'date|recent');
+bookingsStore.sort = route?.query?.sort ?? 'date|recent'
 const filter = ref('all');
 watch(sort, (newVal) => {
   if (sort.value === route.query.sort) return;
-  router.push({ query: { sort: newVal } });
-  cabinsStore.sort = newVal;
+  router.push({ query: { ...route.query,sort: newVal } });
+  bookingsStore.sort = newVal;
 });
 watch(filter, (newVal) => {
   if (filter.value === route.query.filter) return;
-  router.push({ query: { filter: newVal } });
-  cabinsStore.filter = newVal;
+  router.push({ query: { ...route.query,filter: newVal } });
+  bookingsStore.filter = newVal;
 });
-cabinsStore.filter = route.query.filter || 'all';
+bookingsStore.filter = route.query.filter || 'all';
 filter.value = route.query.filter || 'all';
 function changeFilter(val) {
   filter.value = val;

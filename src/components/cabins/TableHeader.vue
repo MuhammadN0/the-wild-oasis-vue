@@ -50,16 +50,17 @@ import useCabinsStore from '@/stores/cabins';
 const cabinsStore = useCabinsStore();
 const route = useRoute();
 const router = useRouter();
-const sort = ref('name|atz');
+const sort = ref(route?.query?.sort ?? 'name|atz');
+cabinsStore.sort = route?.query?.sort ?? 'name|atz'
 const filter = ref('all');
 watch(sort, (newVal) => {
   if (sort.value === route.query.sort) return;
-  router.push({ query: { sort: newVal } });
+  router.push({ query: { ...route.query,sort: newVal } });
   cabinsStore.sort = newVal;
 });
 watch(filter, (newVal) => {
   if (filter.value === route.query.filter) return;
-  router.push({ query: { filter: newVal } });
+  router.push({ query: { ...route.query,filter: newVal } });
   cabinsStore.filter = newVal;
 });
 cabinsStore.filter = route.query.filter || 'all';

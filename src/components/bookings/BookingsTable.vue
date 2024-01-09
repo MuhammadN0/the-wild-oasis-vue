@@ -11,7 +11,7 @@
     </div>
     <template v-if="bookingsStore.bookings.length">
       <TableRow
-        v-for="booking in bookingsStore.bookings"
+        v-for="booking in bookingsStore.formattedBookings"
         :key="booking.id"
         :booking="booking"
       />
