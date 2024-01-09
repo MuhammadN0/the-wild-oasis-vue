@@ -4,7 +4,7 @@
       class="absolute top-0 left-0 h-full w-full z-40 backdrop-filter backdrop-blur-sm bg-gray-300 bg-opacity-20 flex justify-center items-center"
       @click.self.prevent="store.reset"
     >
-      <ConfirmDelete v-if="store.state === 'deletingCabin'" />
+      <ConfirmDelete v-if="store.state === 'deleting'" />
       <AddCabinForm
         v-else-if="
           store.state === 'addingCabin' || store.state === 'editingCabin'
@@ -17,6 +17,6 @@
 <script setup>
 import useModalStore from '@/stores/modal';
 import AddCabinForm from '../cabins/AddCabinForm.vue';
-import ConfirmDelete from '../cabins/ConfirmDelete.vue';
+import ConfirmDelete from './ConfirmDelete.vue';
 const store = useModalStore();
 </script>

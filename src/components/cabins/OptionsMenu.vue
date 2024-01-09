@@ -10,7 +10,7 @@
       <span>Edit cabin</span>
     </button>
     <button
-      @click.prevent="modalStore.startDeleteCabin(cabin)"
+      @click.prevent="modalStore.startDeleteCabin(cabin,handleDelete)"
       class="flex w-full items-center gap-2 hover:bg-gray-100 px-3 py-2 border-b"
     >
       <i class="fa-solid fa-trash text-red-600"></i>
@@ -27,16 +27,18 @@
 </template>
 
 <script setup>
-import {  } from 'vue';
 import useModalStore from '@/stores/modal';
 import useCabinsStore from '@/stores/cabins';
 const { cabin } = defineProps(['cabin']);
 const modalStore = useModalStore();
 const cabinsStore = useCabinsStore();
-
 async function handleDuplicate() {
   await cabinsStore.duplicateCabin(cabin);
   await cabinsStore.getCabins();
 }
-
+async function handleDelete() {
+  cabinsStore.deleteCabin(modalStore.currentCabin.id);
+  await cabinsStore.getCabins();
+  modalStore.reset();
+}
 </script>

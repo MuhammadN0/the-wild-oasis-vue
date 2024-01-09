@@ -12,9 +12,15 @@ import Sidebar from '@/components/ui/Sidebar.vue';
 import Navbar from '@/components/ui/Navbar.vue';
 import useCabinsStore from '@/stores/cabins';
 import useSettingsStore from '@/stores/settings';
+import useBookingsStore from '@/stores/bookings'
+import useGuestsStore from '@/stores/guests'
 import Modal from './components/ui/Modal.vue';
 const cabinsStore = useCabinsStore();
 cabinsStore.getCabins();
 const settingsStore = useSettingsStore();
 settingsStore.getSettings();
+const bookingsStore = useBookingsStore();
+bookingsStore.getBookings();
+const guestsStore = useGuestsStore();
+guestsStore.getGuests()
 </script>

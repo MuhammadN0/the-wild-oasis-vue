@@ -1,5 +1,5 @@
 import { cabinsCollection, db } from '@/firebase/config';
-import { add } from 'date-fns';
+import { add, differenceInDays } from 'date-fns';
 
 function fromToday(numDays, withTime = false) {
   const date = add(new Date(), { days: numDays });
@@ -9,74 +9,82 @@ function fromToday(numDays, withTime = false) {
 
 export const Gcabins = [
   {
-    name: "001",
+    name: '001',
     maxCapacity: 2,
     regularPrice: 250,
     discount: 0,
-    image: 'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-001.jpg-0.29822217456365596?alt=media&token=e06f94e8-b035-47e5-a1de-3cd53ea93ec5',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-001.jpg-0.29822217456365596?alt=media&token=e06f94e8-b035-47e5-a1de-3cd53ea93ec5',
     description:
-      "Discover the ultimate luxury getaway for couples in the cozy wooden cabin 001. Nestled in a picturesque forest, this stunning cabin offers a secluded and intimate retreat. Inside, enjoy modern high-quality wood interiors, a comfortable seating area, a fireplace and a fully-equipped kitchen. The plush king-size bed, dressed in fine linens guarantees a peaceful nights sleep. Relax in the spa-like shower and unwind on the private deck with hot tub.",
+      'Discover the ultimate luxury getaway for couples in the cozy wooden cabin 001. Nestled in a picturesque forest, this stunning cabin offers a secluded and intimate retreat. Inside, enjoy modern high-quality wood interiors, a comfortable seating area, a fireplace and a fully-equipped kitchen. The plush king-size bed, dressed in fine linens guarantees a peaceful nights sleep. Relax in the spa-like shower and unwind on the private deck with hot tub.',
   },
   {
-    name: "002",
+    name: '002',
     maxCapacity: 2,
     regularPrice: 350,
     discount: 25,
-    image: 'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-002.jpg?alt=media&token=a6f9604f-d8b3-4ec0-bc6d-0f6c94a480aa',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-002.jpg?alt=media&token=a6f9604f-d8b3-4ec0-bc6d-0f6c94a480aa',
     description:
-      "Escape to the serenity of nature and indulge in luxury in our cozy cabin 002. Perfect for couples, this cabin offers a secluded and intimate retreat in the heart of a picturesque forest. Inside, you will find warm and inviting interiors crafted from high-quality wood, a comfortable living area, a fireplace and a fully-equipped kitchen. The luxurious bedroom features a plush king-size bed and spa-like shower. Relax on the private deck with hot tub and take in the beauty of nature.",
+      'Escape to the serenity of nature and indulge in luxury in our cozy cabin 002. Perfect for couples, this cabin offers a secluded and intimate retreat in the heart of a picturesque forest. Inside, you will find warm and inviting interiors crafted from high-quality wood, a comfortable living area, a fireplace and a fully-equipped kitchen. The luxurious bedroom features a plush king-size bed and spa-like shower. Relax on the private deck with hot tub and take in the beauty of nature.',
   },
   {
-    name: "003",
+    name: '003',
     maxCapacity: 4,
     regularPrice: 300,
     discount: 0,
-    image: 'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-003.jpg-0.5873397155907969?alt=media&token=df4eae61-7ae2-4158-b379-f6db6c6572fb',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-003.jpg-0.5873397155907969?alt=media&token=df4eae61-7ae2-4158-b379-f6db6c6572fb',
     description:
-      "Experience luxury family living in our medium-sized wooden cabin 003. Perfect for families of up to 4 people, this cabin offers a comfortable and inviting space with all modern amenities. Inside, you will find warm and inviting interiors crafted from high-quality wood, a comfortable living area, a fireplace, and a fully-equipped kitchen. The bedrooms feature plush beds and spa-like bathrooms. The cabin has a private deck with a hot tub and outdoor seating area, perfect for taking in the natural surroundings.",
+      'Experience luxury family living in our medium-sized wooden cabin 003. Perfect for families of up to 4 people, this cabin offers a comfortable and inviting space with all modern amenities. Inside, you will find warm and inviting interiors crafted from high-quality wood, a comfortable living area, a fireplace, and a fully-equipped kitchen. The bedrooms feature plush beds and spa-like bathrooms. The cabin has a private deck with a hot tub and outdoor seating area, perfect for taking in the natural surroundings.',
   },
   {
-    name: "004",
+    name: '004',
     maxCapacity: 4,
     regularPrice: 500,
     discount: 50,
-    image: 'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-004.jpg-0.9151820555345715?alt=media&token=bf3fd911-b8bc-48d6-bc74-ded7bfc75f2a',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-004.jpg-0.9151820555345715?alt=media&token=bf3fd911-b8bc-48d6-bc74-ded7bfc75f2a',
     description:
-      "Indulge in the ultimate luxury family vacation in this medium-sized cabin 004. Designed for families of up to 4, this cabin offers a sumptuous retreat for the discerning traveler. Inside, the cabin boasts of opulent interiors crafted from the finest quality wood, a comfortable living area, a fireplace, and a fully-equipped gourmet kitchen. The bedrooms are adorned with plush beds and spa-inspired en-suite bathrooms. Step outside to your private deck and soak in the natural surroundings while relaxing in your own hot tub.",
+      'Indulge in the ultimate luxury family vacation in this medium-sized cabin 004. Designed for families of up to 4, this cabin offers a sumptuous retreat for the discerning traveler. Inside, the cabin boasts of opulent interiors crafted from the finest quality wood, a comfortable living area, a fireplace, and a fully-equipped gourmet kitchen. The bedrooms are adorned with plush beds and spa-inspired en-suite bathrooms. Step outside to your private deck and soak in the natural surroundings while relaxing in your own hot tub.',
   },
   {
-    name: "005",
+    name: '005',
     maxCapacity: 6,
     regularPrice: 350,
     discount: 0,
-    image: 'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-005.jpg-0.9041344811243639?alt=media&token=60459263-ffd4-4d28-ae0b-4307b3cf2151',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-005.jpg-0.9041344811243639?alt=media&token=60459263-ffd4-4d28-ae0b-4307b3cf2151',
     description:
-      "Enjoy a comfortable and cozy getaway with your group or family in our spacious cabin 005. Designed to accommodate up to 6 people, this cabin offers a secluded retreat in the heart of nature. Inside, the cabin features warm and inviting interiors crafted from quality wood, a living area with fireplace, and a fully-equipped kitchen. The bedrooms are comfortable and equipped with en-suite bathrooms. Step outside to your private deck and take in the natural surroundings while relaxing in your own hot tub.",
+      'Enjoy a comfortable and cozy getaway with your group or family in our spacious cabin 005. Designed to accommodate up to 6 people, this cabin offers a secluded retreat in the heart of nature. Inside, the cabin features warm and inviting interiors crafted from quality wood, a living area with fireplace, and a fully-equipped kitchen. The bedrooms are comfortable and equipped with en-suite bathrooms. Step outside to your private deck and take in the natural surroundings while relaxing in your own hot tub.',
   },
   {
-    name: "006",
+    name: '006',
     maxCapacity: 6,
     regularPrice: 800,
     discount: 100,
-    image: 'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-006.jpg-0.6982711919782585?alt=media&token=45fc1617-b1e2-439e-bf5c-ec9deb1a7d2c',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-006.jpg-0.6982711919782585?alt=media&token=45fc1617-b1e2-439e-bf5c-ec9deb1a7d2c',
     description:
-      "Experience the epitome of luxury with your group or family in our spacious wooden cabin 006. Designed to comfortably accommodate up to 6 people, this cabin offers a lavish retreat in the heart of nature. Inside, the cabin features opulent interiors crafted from premium wood, a grand living area with fireplace, and a fully-equipped gourmet kitchen. The bedrooms are adorned with plush beds and spa-like en-suite bathrooms. Step outside to your private deck and soak in the natural surroundings while relaxing in your own hot tub.",
+      'Experience the epitome of luxury with your group or family in our spacious wooden cabin 006. Designed to comfortably accommodate up to 6 people, this cabin offers a lavish retreat in the heart of nature. Inside, the cabin features opulent interiors crafted from premium wood, a grand living area with fireplace, and a fully-equipped gourmet kitchen. The bedrooms are adorned with plush beds and spa-like en-suite bathrooms. Step outside to your private deck and soak in the natural surroundings while relaxing in your own hot tub.',
   },
   {
-    name: "007",
+    name: '007',
     maxCapacity: 8,
     regularPrice: 600,
     discount: 100,
-    image: 'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-007.jpg-0.10777236306477667?alt=media&token=0792d9fb-8031-4c46-a2a0-88adc495d4fb',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-007.jpg-0.10777236306477667?alt=media&token=0792d9fb-8031-4c46-a2a0-88adc495d4fb',
     description:
-      "Accommodate your large group or multiple families in the spacious and grand wooden cabin 007. Designed to comfortably fit up to 8 people, this cabin offers a secluded retreat in the heart of beautiful forests and mountains. Inside, the cabin features warm and inviting interiors crafted from quality wood, multiple living areas with fireplace, and a fully-equipped kitchen. The bedrooms are comfortable and equipped with en-suite bathrooms. The cabin has a private deck with a hot tub and outdoor seating area, perfect for taking in the natural surroundings.",
+      'Accommodate your large group or multiple families in the spacious and grand wooden cabin 007. Designed to comfortably fit up to 8 people, this cabin offers a secluded retreat in the heart of beautiful forests and mountains. Inside, the cabin features warm and inviting interiors crafted from quality wood, multiple living areas with fireplace, and a fully-equipped kitchen. The bedrooms are comfortable and equipped with en-suite bathrooms. The cabin has a private deck with a hot tub and outdoor seating area, perfect for taking in the natural surroundings.',
   },
   {
-    name: "008",
+    name: '008',
     maxCapacity: 10,
     regularPrice: 1400,
     discount: 0,
-    image: 'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-008.jpg-0.16431700972671925?alt=media&token=349bc6d2-81ba-497a-a711-2f2340283413',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/cabins%2Fcabin-008.jpg-0.16431700972671925?alt=media&token=349bc6d2-81ba-497a-a711-2f2340283413',
     description:
       "Experience the epitome of luxury and grandeur with your large group or multiple families in our grand cabin 008. This cabin offers a lavish retreat that caters to all your needs and desires. The cabin features an opulent design and boasts of high-end finishes, intricate details and the finest quality wood throughout. Inside, the cabin features multiple grand living areas with fireplaces, a formal dining area, and a gourmet kitchen that is a chef's dream. The bedrooms are designed for ultimate comfort and luxury, with plush beds and en-suite spa-inspired bathrooms. Step outside and immerse yourself in the beauty of nature from your private deck, featuring a luxurious hot tub and ample seating areas for ultimate relaxation and enjoyment.",
   },
@@ -94,6 +102,7 @@ export const bookings = [
       'I have a gluten allergy and would like to request a gluten-free breakfast.',
     isPaid: false,
     numGuests: 1,
+    status: 'unconfirmed',
   },
   {
     created_at: fromToday(-33, true),
@@ -105,6 +114,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 2,
+    status: 'checked-out',
   },
   {
     created_at: fromToday(-27, true),
@@ -116,6 +126,7 @@ export const bookings = [
     observations: '',
     isPaid: false,
     numGuests: 2,
+    status: 'unconfirmed',
   },
 
   // CABIN 002
@@ -129,6 +140,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 2,
+    status: 'checked-out',
   },
   {
     created_at: fromToday(-2, true),
@@ -140,6 +152,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 2,
+    status: 'unconfirmed',
   },
   {
     created_at: fromToday(-5, true),
@@ -151,6 +164,7 @@ export const bookings = [
     observations: '',
     isPaid: false,
     numGuests: 2,
+    status: 'unconfirmed',
   },
 
   // CABIN 003
@@ -164,6 +178,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 4,
+    status: 'checked-out',
   },
   {
     created_at: fromToday(-2, true),
@@ -175,6 +190,7 @@ export const bookings = [
     observations: 'We will be bringing our small dog with us',
     isPaid: true,
     numGuests: 3,
+    status: 'checked-in',
   },
   {
     created_at: fromToday(-14, true),
@@ -186,6 +202,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 4,
+    status: 'checked-out'
   },
 
   // CABIN 004
@@ -199,6 +216,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 4,
+    status: 'checked-in',
   },
   {
     created_at: fromToday(-1, true),
@@ -210,6 +228,7 @@ export const bookings = [
     observations: '',
     isPaid: false,
     numGuests: 4,
+    status: 'unconfirmed',
   },
   {
     created_at: fromToday(-3, true),
@@ -221,6 +240,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 1,
+    status: 'unconfirmed',
   },
 
   // CABIN 005
@@ -234,6 +254,7 @@ export const bookings = [
     observations: '',
     isPaid: false,
     numGuests: 5,
+    status: 'unconfirmed',
   },
   {
     created_at: fromToday(-6, true),
@@ -245,6 +266,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 4,
+    status: 'checked-out',
   },
   {
     created_at: fromToday(-4, true),
@@ -256,6 +278,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 6,
+    status: 'checked-out',
   },
 
   // CABIN 006
@@ -270,6 +293,7 @@ export const bookings = [
       "We will be checking in late, around midnight. Hope that's okay :)",
     isPaid: true,
     numGuests: 6,
+    status: 'unconfirmed',
   },
   {
     created_at: fromToday(-16, true),
@@ -281,6 +305,7 @@ export const bookings = [
     observations: 'I will need a rollaway bed for one of the guests',
     isPaid: true,
     numGuests: 4,
+    status: 'checked-out',
   },
   {
     created_at: fromToday(-18, true),
@@ -292,6 +317,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 6,
+    status: 'checked-out',
   },
 
   // CABIN 007
@@ -305,6 +331,7 @@ export const bookings = [
     observations: '',
     isPaid: false,
     numGuests: 8,
+    status: 'unconfirmed',
   },
   {
     created_at: fromToday(-7, true),
@@ -316,6 +343,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 7,
+    status: 'unconfirmed',
   },
   {
     created_at: fromToday(-55, true),
@@ -327,6 +355,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 6,
+    status: 'unconfirmed',
   },
 
   // CABIN 008
@@ -341,6 +370,7 @@ export const bookings = [
       'My wife has a gluten allergy so I would like to request a gluten-free breakfast if possible',
     isPaid: true,
     numGuests: 9,
+    status: 'checked-in',
   },
   {
     created_at: fromToday(0, true),
@@ -353,6 +383,7 @@ export const bookings = [
       'I am celebrating my anniversary, can you arrange for any special amenities or decorations?',
     isPaid: true,
     numGuests: 10,
+    status: 'unconfirmed',
   },
   {
     created_at: fromToday(-10, true),
@@ -364,6 +395,7 @@ export const bookings = [
     observations: '',
     isPaid: true,
     numGuests: 7,
+    status: 'unconfirmed',
   },
 ];
 
@@ -584,14 +616,14 @@ export const Gguests = [
 ];
 
 export async function upload() {
-  console.log('Loading...... Don\'t refresh the page')
+  console.log("Loading...... Don't refresh the page");
   const cabinsSnapshots_1 = await cabinsCollection.get();
   cabinsSnapshots_1.forEach(async (doc) => {
     await cabinsCollection.doc(doc.id).delete();
-  })
+  });
   Gcabins.forEach(async (cabin) => {
-    await cabinsCollection.add(cabin)
-  })
+    await cabinsCollection.add(cabin);
+  });
   const guestsCollection = db.collection('guests');
   const guestsSnapshot = await guestsCollection.get();
   guestsSnapshot.forEach(async (doc) => {
@@ -613,7 +645,20 @@ export async function upload() {
   const finalBookings = bookings.map((booking) => {
     const cabinId = cabins[booking.cabinId - 1].id;
     const guestId = guests[booking.guestId].id;
-    return { ...booking, cabinId, guestId };
+    const numNights = differenceInDays(booking.endDate, booking.startDate);
+    const cabinPrice = Gcabins[booking.cabinId - 1].regularPrice * numNights;
+    const extrasPrice = booking.hasBreakfast ? 20 * numNights : 0;
+    const totalPrice = cabinPrice + extrasPrice;
+
+    return {
+      ...booking,
+      cabinId,
+      guestId,
+      numNights,
+      cabinPrice,
+      extrasPrice,
+      totalPrice,
+    };
   });
   const bookingsCollection = db.collection('bookings');
   const bookingsSnapshots = await bookingsCollection.get();
@@ -623,5 +668,5 @@ export async function upload() {
   finalBookings.forEach(async (booking) => {
     await bookingsCollection.add(booking);
   });
-  console.log('Done ;)')
+  console.log('Done ;)');
 }

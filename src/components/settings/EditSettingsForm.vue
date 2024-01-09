@@ -12,7 +12,7 @@
           type="number"
           :value="settings.minNights"
           :disabled="settingsStore.isLoading"
-          :class="{'bg-slate-600 cursor-not-allowed': settingsStore.isLoading}"
+          :class="{'bg-slate-300 cursor-not-allowed': settingsStore.isLoading}"
           @blur="handleBlur"
         />
       </div>
@@ -27,7 +27,7 @@
           type="number"
           :value="settings.maxNights"
           :disabled="settingsStore.isLoading"
-          :class="{'bg-slate-600 cursor-not-allowed': settingsStore.isLoading}"
+          :class="{'bg-slate-300 cursor-not-allowed': settingsStore.isLoading}"
           @blur="handleBlur"
         />
       </div>
@@ -42,7 +42,7 @@
           :value="settings.maxGuests"
           class="border border-gray-300 rounded p-1 focus:outline-violet-600"
           :disabled="settingsStore.isLoading"
-          :class="{'bg-slate-600 cursor-not-allowed': settingsStore.isLoading}"
+          :class="{'bg-slate-300 cursor-not-allowed': settingsStore.isLoading}"
           @blur="handleBlur"
         />
       </div>
@@ -55,7 +55,7 @@
           type="number"
           :value="settings.breakfastPrice"
           :disabled="settingsStore.isLoading"
-          :class="{'bg-slate-600 cursor-not-allowed': settingsStore.isLoading}"
+          :class="{'bg-slate-300 cursor-not-allowed': settingsStore.isLoading}"
           @blur="handleBlur"
         />
       </div>
