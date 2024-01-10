@@ -4,7 +4,9 @@ import UsersView from '../views/UsersView.vue';
 import CabinsView from '../views/CabinsView.vue';
 import SettingsView from '../views/SettingsView.vue';
 import BookingsView from '../views/BookingsView.vue';
+import BookingDetailsView from '../views/BookingDetailsView.vue';
 import AccountView from '../views/AccountView.vue';
+import CheckinView from '../views/CheckinView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,9 +19,19 @@ const router = createRouter({
       alias: '/',
     },
     {
+      name:'checkin',
+      path: '/checkin/:id',
+      component: CheckinView,
+    },
+    {
       path: '/bookings',
       name: 'bookings',
       component: BookingsView,
+    },
+    {
+      path: '/booking/:id',
+      name: 'booking',
+      component: BookingDetailsView
     },
     {
       path: '/cabins',

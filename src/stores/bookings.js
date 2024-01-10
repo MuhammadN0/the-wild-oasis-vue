@@ -12,6 +12,7 @@ export default defineStore('bookings', {
   actions: {
     async getBookings() {
       try {
+        this.bookings = [];
         this.isLoading = true;
         const bookingsSnapshot = await db
           .collection('bookings')
@@ -25,12 +26,25 @@ export default defineStore('bookings', {
       } finally {
         this.isLoading = false;
       }
+
+    },
+    async checkIn(id,data){
+      this.isLoading = true
+      await db.collection('bookings').doc(id).update({...data})
+      await this.getBookings();
+      this.isLoading = false;
     },
     async deleteBooking(id) {
       this.isLoading = true;
       await db.collection('bookings').doc(id).delete();
       this.isLoading = false;
     },
+    async checkOut(id) {
+      this.isLoading = true;
+      await db.collection('bookings').doc(id).update({status:'checked-out'})
+      await this.getBookings();
+      this.isLoading = false;
+    }
   },
   getters: {
     formattedBookings() {

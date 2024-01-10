@@ -23,6 +23,7 @@ export function sortByPrice(objs, order) {
   });
   return formettedObjs;
 }
+
 export function sortByCapacity(objs, order) {
   const formettedObjs = objs.slice();
   formettedObjs.sort((a, b) => {
