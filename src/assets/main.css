@@ -11,3 +11,6 @@ body{
 .sono {
   font-family: Sono;
 }
+.grid-rows-custom{
+  grid-template-rows: auto 340px auto;
+}

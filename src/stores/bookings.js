@@ -1,5 +1,6 @@
 import { db } from '@/firebase/config';
 import { sortByDate, sortByBookingPrice } from '@/utils/helpers';
+import { endOfToday, isAfter, isBefore, isToday, subDays } from 'date-fns';
 import { defineStore } from 'pinia';
 
 export default defineStore('bookings', {
@@ -8,6 +9,7 @@ export default defineStore('bookings', {
     bookings: [],
     sort: 'date|recent',
     filter: 'all',
+    last: 7,
   }),
   actions: {
     async getBookings() {
@@ -26,11 +28,13 @@ export default defineStore('bookings', {
       } finally {
         this.isLoading = false;
       }
-
     },
-    async checkIn(id,data){
-      this.isLoading = true
-      await db.collection('bookings').doc(id).update({...data})
+    async checkIn(id, data) {
+      this.isLoading = true;
+      await db
+        .collection('bookings')
+        .doc(id)
+        .update({ ...data });
       await this.getBookings();
       this.isLoading = false;
     },
@@ -41,10 +45,10 @@ export default defineStore('bookings', {
     },
     async checkOut(id) {
       this.isLoading = true;
-      await db.collection('bookings').doc(id).update({status:'checked-out'})
+      await db.collection('bookings').doc(id).update({ status: 'checked-out' });
       await this.getBookings();
       this.isLoading = false;
-    }
+    },
   },
   getters: {
     formattedBookings() {
@@ -66,5 +70,27 @@ export default defineStore('bookings', {
         return sorted.filter((booking) => booking.status === 'unconfirmed');
       return [];
     },
+    dashboardBookings() {
+      const firstDate = subDays(new Date(), this.last);
+      const lastDate = endOfToday();
+      return this.bookings.filter(
+        (booking) =>
+          isBefore(booking.startDate, lastDate) &&
+          isAfter(booking.startDate, firstDate)
+      );
+    },
+    todaysBookings(){
+      return this.bookings.filter((booking) => isToday(booking.startDate) || isToday(booking.endDate));
+    },
+    todaysActivityBookings() {
+      return this.todaysBookings.filter((booking) => isToday(booking.startDate) || isToday(booking.endDate))
+    },
+    createdBookings() {
+      const firstDate = subDays(new Date(), this.last);
+      const lastDate = endOfToday();
+      return this.bookings.filter((booking)=> isBefore(booking.created_at,lastDate) && isAfter(booking.created_at,firstDate))
+    },
   },
 });
+
+//isBefore //isAfter //subDays(date,number) //endOfToday

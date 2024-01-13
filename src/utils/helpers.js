@@ -53,3 +53,10 @@ export function sortByBookingPrice(objs, order) {
   });
   return formettedObjs;
 }
+
+export function formatAsCurrency(number, currencyCode = 'USD', locale = 'en-US') {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: currencyCode
+  }).format(number);
+}

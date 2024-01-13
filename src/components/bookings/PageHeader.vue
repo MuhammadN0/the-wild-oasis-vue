@@ -30,7 +30,7 @@
             @click.prevent="changeFilter('unconfirmed')"
             :class="{ ' bg-violet-600 text-white': filter === 'unconfirmed' }"
           >
-            unconfirmed
+            Unconfirmed
           </button>
         </div>
         <select v-model="sort" class="px-5">
