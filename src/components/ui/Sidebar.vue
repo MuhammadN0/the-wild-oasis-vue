@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="bg-gray-50 pt-20 col-span-1 row-span-full border-r border-r-gray-200"
+    class="bg-gray-50 pt-20 col-span-1 text-gray-800 row-span-full dark:text-gray-100 border-r border-r-gray-200"
     :class="{ 'bg-gray-700 border-r-gray-600': darkmodeStore.isDarkMode }"
   >
     <div class="max-w-40 mx-auto mb-10">
