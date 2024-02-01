@@ -1,27 +1,41 @@
 <template>
   <nav
     class="bg-gray-50 col-span-5 border-b border-b-gray-200 flex items-center justify-end px-14 gap-8"
+    v-if="auth.currentUser"
   >
     <div class="flex items-center gap-2">
       <div class="w-9 rounded-full overflow-hidden">
-        <img src="@/assets/user-img.jpg" />
+        <img
+          :src="
+            auth.currentUser.photoURL !== null
+              ? auth.currentUser.photoURL
+              : 'https://firebasestorage.googleapis.com/v0/b/the-wild-oasis-72431.appspot.com/o/user-img.jpg?alt=media&token=23258105-0ea0-4b8d-b229-38bfc208be6c'
+          "
+        />
       </div>
-      <span>Muhammad Noor</span>
+      <span>{{ auth.currentUser.displayName }}</span>
     </div>
-    <div class="flex items-center gap-3.5">
-      <RouterLink :to="{ name: 'account' }">
+    <div class="flex items-center gap-3">
+      <RouterLink
+        class="p-2 hover:bg-gray-200 rounded"
+        :to="{ name: 'account' }"
+      >
         <i class="fa-solid fa-user fa-lg text-violet-600"></i>
       </RouterLink>
-      <button>
+      <button class="p-2 hover:bg-gray-200 rounded">
         <i class="fa-solid fa-moon fa-lg text-violet-600"></i>
       </button>
-      <button>
+      <button @click.prevent="logout" class="p-2 hover:bg-gray-200 rounded">
         <i class="fa-solid fa-right-from-bracket fa-lg text-violet-600"></i>
       </button>
     </div>
   </nav>
 </template>
 
-<script setup></script>
-
-<style></style>
+<script setup>
+import { auth } from "@/firebase/config";
+async function logout(){
+  await auth.signOut();
+  window.location.reload()
+}
+</script>

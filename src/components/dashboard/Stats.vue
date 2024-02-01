@@ -14,7 +14,7 @@
   <Stat
     title="Check ins"
     :content="checkins"
-    :color-class="'violet'"
+    color-class='blue'
     iconClass="fa-solid fa-calendar-days"
   />
   <Stat

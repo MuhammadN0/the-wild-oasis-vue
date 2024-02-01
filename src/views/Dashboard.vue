@@ -5,7 +5,7 @@
       <Stats />
       <TodaysActivity/>
       <PieChart/>
-      <div class="bg-white flex items-center justify-center col-span-4">Chart 2</div>
+      <LineChart/>
     </div>
   </template>
   <div class="flex items-center justify-center" v-else>
@@ -23,6 +23,7 @@ import { computed } from "vue";
 import Stats from "@/components/dashboard/Stats.vue";
 import TodaysActivity from "@/components/dashboard/TodaysActivity.vue";
 import PieChart from "@/components/dashboard/PieChart.vue";
+import LineChart from "@/components/dashboard/LineChart.vue";
 const bookingsStore = useBookingsStore();
 const guestsStore = useGuestsStore();
 const cabinsStore = useCabinsStore();

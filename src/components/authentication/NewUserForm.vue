@@ -77,12 +77,13 @@ const isLoading = ref(false)
 async function handleSubmit({name,email,password}) {
   try {
     isLoading.value = true
-    const newUser = await auth.createUserWithEmailAndPassword(email,password)
-    await newUser.updateProfile({displayName:name});
+    await auth.createUserWithEmailAndPassword(email,password)
+    await auth.currentUser.updateProfile({displayName:name});
   }catch (err) {
     console.log(err.message)
   }finally{
     isLoading.value = false
+    window.location.reload();
   }
 }
 </script>
