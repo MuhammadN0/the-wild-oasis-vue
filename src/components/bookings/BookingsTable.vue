@@ -1,7 +1,7 @@
 <template>
-  <div class="rounded-lg border mb-3 border-gray-200 overflow-visible">
+  <div class="rounded-lg border mb-3 border-gray-200 dark:border-gray-600 overflow-hidden">
     <!-- Table -->
-    <div class="bg-gray-100 grid grid-cols-10 uppercase py-3">
+    <div class="bg-gray-100 dark:bg-gray-800 dark:text-gray-100 grid grid-cols-10 uppercase py-3">
       <!-- Real Table  header -->
       <div class="col-span-1 px-4">Cabin</div>
       <div class="col-span-2">Guest</div>
@@ -26,12 +26,12 @@
       No bookings to show... start adding bookings.
     </div>
   </div>
-  <button
+  <!-- <button
     @click.prevent=""
     class="bg-violet-600 text-white text-sm rounded-md px-3 py-2 hover:bg-violet-800"
   >
     Add new booking
-  </button>
+  </button> -->
 </template>
 
 <script setup>

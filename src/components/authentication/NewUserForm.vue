@@ -1,5 +1,5 @@
 <template>
-  <Form @submit="handleSubmit" :validation-schema="schema" class="bg-gray-50 p-12 rounded">
+  <Form @submit="handleSubmit" :validation-schema="schema" class="bg-gray-50 dark:bg-gray-700 dark:text-gray-100 p-12 rounded">
     <div
       class="grid grid-cols-3 gap-3 border-b border-gray-200 py-4 items-center"
     >
@@ -7,7 +7,7 @@
       <Field
         name="name"
         id="name"
-        class="border border-gray-300 rounded p-1 focus:outline-violet-600"
+        class="border dark:bg-gray-700 dark:border-gray-500  border-gray-300 rounded p-1 focus:outline-violet-600"
         type="text"
       />
       <ErrorMessage name="name" class="text-red-700"></ErrorMessage>
@@ -19,7 +19,7 @@
       <Field
         name="email"
         id="email"
-        class="border border-gray-300 rounded p-1 focus:outline-violet-600"
+        class="border dark:bg-gray-700 dark:border-gray-500  border-gray-300 rounded p-1 focus:outline-violet-600"
         type="text"
       />
       <ErrorMessage name="email" class="text-red-700"></ErrorMessage>
@@ -32,7 +32,7 @@
         name="password"
         type="password"
         id="password"
-        class="border border-gray-300 rounded p-1 focus:outline-violet-600"
+        class="border dark:bg-gray-700 dark:border-gray-500  border-gray-300 rounded p-1 focus:outline-violet-600"
       />
       <ErrorMessage name="password" class="text-red-700"></ErrorMessage>
     </div>
@@ -43,13 +43,13 @@
       <Field
         name="confirmPassword"
         id="confirmPassword"
-        class="border border-gray-300 rounded p-1 focus:outline-violet-600"
+        class="border dark:bg-gray-700 dark:border-gray-500  border-gray-300 rounded p-1 focus:outline-violet-600"
         type="password"
       />
       <ErrorMessage name="confirmPassword" class="text-red-700"></ErrorMessage>
     </div>
     <div class="flex items-center justify-end gap-4">
-      <button type="reset" class="px-3 py-2 border-2 border-gray-800 rounded">Cancel</button>
+      <button type="reset" class="px-3 py-2 border-2 border-gray-800 dark:border-gray-100 rounded">Cancel</button>
       <button
         class="bg-violet-600 px-3 py-2 text-white rounded hover:bg-violet-700 border-2 border-violet-600"
       >

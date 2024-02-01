@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gray-50 col-span-4 p-4">
-    <h3 class="text-left w-full pt-4 px-4 text-xl font-medium">Sales</h3>
+  <div class="bg-gray-50 text-gray-800 col-span-4 p-4 rounded-lg dark:bg-gray-700">
+    <h3 class="text-left dark:text-gray-200 w-full pt-4 px-4 text-xl font-medium">Sales</h3>
     <div class="w-full">
       <canvas class="w-full" id="sales"></canvas>
     </div>

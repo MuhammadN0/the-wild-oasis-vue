@@ -1,6 +1,7 @@
 <template>
   <div
     class="col-span-2 flex items-center justify-center overflow-hidden bg-gray-50 rounded-md flex-col"
+    :class="{'bg-gray-700 text-gray-50' : darkmodeStore.isDarkMode}"
   >
     <h3 class="text-left w-full pt-4 px-4 text-lg">Stay duration summary</h3>
     <div>
@@ -13,6 +14,8 @@
 import { onMounted, computed } from "vue";
 import Chart from "chart.js/auto";
 import useBookingsStore from "@/stores/bookings";
+import useDarkmode from '@/stores/darkmode'
+const darkmodeStore = useDarkmode()
 const bookingsStore = useBookingsStore();
 
 const data = computed(() => [
@@ -68,7 +71,6 @@ const data = computed(() => [
     ),
   },
 ]);
-
 onMounted(async () => {
   (async function () {
     new Chart(document.getElementById("acquisitions"), {
@@ -85,7 +87,6 @@ onMounted(async () => {
       options: {
         cutout: 70,
         radius: 80,
-        color: true,
         responsive: true,
         spacing: 10,
       },

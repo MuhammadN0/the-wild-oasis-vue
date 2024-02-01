@@ -1,9 +1,9 @@
 <template>
   <header class="mb-12">
-    <div class="justify-between text-gray-800 items-center flex">
+    <div class="justify-between text-gray-800 dark:text-gray-100 items-center flex">
       <h1 class="text-3xl font-bold">Our Cabins</h1>
       <div class="flex gap-10">
-        <div class="bg-white text-sm font-semibold flex p-1 rounded-md gap-1">
+        <div class="bg-white text-sm font-semibold flex p-1 rounded-md gap-1 dark:bg-gray-700 dark:text-gray-100">
           <button
             class="px-2 py-1 rounded-md hover:bg-violet-600 hover:text-white"
             @click.prevent="changeFilter('all')"
@@ -26,7 +26,7 @@
             With disctount
           </button>
         </div>
-        <select v-model="sort" class="px-5">
+        <select v-model="sort" class="px-5 dark:bg-gray-700 text-gray-100">
           <option value="name|atz">Sort by Name (A-Z)</option>
           <option value="name|zta">Sort by Name (Z-A)</option>
           <option value="price|lowFirst">Sort by Price (Low first)</option>

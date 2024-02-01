@@ -1,6 +1,6 @@
 <template v-if="cabinsStore.cabins.length">
   <div
-    class="grid grid-cols-10 bg-gray-50 border-t border-gray-200 items-center py-4"
+    class="grid grid-cols-10 bg-gray-50 border-t border-gray-200 items-center py-4 dark:bg-gray-700 dark:border-gray-600 text-gray-100"
   >
     <div class="col-span-1 sono font-semibold px-4 py-1">
       {{ cabinName }}
@@ -40,8 +40,8 @@
       <button
         @click.prevent="isOpen = !isOpen"
         ref="modal"
-        class="border-gray-200 hover:bg-gray-200 px-2 rounded relative"
-        :class="{ ' bg-gray-200': isOpen }"
+        class="border-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 px-2 rounded relative"
+        :class="{ ' bg-gray-200 dark:bg-gray-800': isOpen }"
       >
         <i ref="dots" class="fa-solid fa-ellipsis-vertical"></i>
         <OptionsMenu v-if="isOpen" :booking="booking" />

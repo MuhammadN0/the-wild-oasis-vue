@@ -3,7 +3,7 @@
     <div class="justify-between text-gray-800 items-center flex">
       <h1 class="text-3xl font-bold">All bookings</h1>
       <div class="flex gap-10">
-        <div class="bg-white text-sm font-semibold flex p-1 rounded-md gap-1">
+        <div class="bg-white dark:bg-gray-700 dark:text-gray-100 text-sm font-semibold flex p-1 rounded-md gap-1">
           <button
             class="px-2 py-1 rounded-md hover:bg-violet-600 hover:text-white"
             @click.prevent="changeFilter('all')"
@@ -33,7 +33,7 @@
             Unconfirmed
           </button>
         </div>
-        <select v-model="sort" class="px-5">
+        <select v-model="sort" class="px-5 dark:bg-gray-700 dark:text-gray-100">
           <option value="date|recent">Sort by date (recent first)</option>
           <option value="date|early">Sort by date (earlier first)</option>
           <option value="amount|highFirst">Sort by amount (high first)</option>

@@ -4,7 +4,7 @@
       modalStore.state === 'addingCabin' || modalStore.state === 'editingCabin'
     "
     @submit="submitForm"
-    class="bg-gray-50 p-10 rounded-lg shadow-xl z-50"
+    class="bg-gray-50 p-10 rounded-lg dark:bg-gray-800 text-gray-100 shadow-xl z-50"
     :validation-schema="schema"
     :initial-values="
       modalStore.state === 'editingCabin' && modalStore.currentCabin
@@ -27,7 +27,7 @@
         id="name"
         name="name"
         type="text"
-        class="border border-gray-200 p-1 rounded-md shadow-sm"
+        class="border dark:bg-gray-800 dark:border-gray-600 border-gray-200 p-1 rounded-md shadow-sm"
       />
       <ErrorMessage name="name" class="text-red-700 pl-2"></ErrorMessage>
     </div>
@@ -37,7 +37,7 @@
         id="maxC"
         name="maxCapacity"
         type="number"
-        class="border border-gray-200 p-1 rounded-md shadow-sm"
+        class="border dark:bg-gray-800 dark:border-gray-600 border-gray-200 p-1 rounded-md shadow-sm"
       />
       <ErrorMessage name="maxCapacity" class="text-red-700 pl-2"></ErrorMessage>
     </div>
@@ -47,7 +47,7 @@
         id="regPrice"
         name="regularPrice"
         type="number"
-        class="border border-gray-200 p-1 rounded-md shadow-sm"
+        class="border dark:bg-gray-800 dark:border-gray-600 border-gray-200 p-1 rounded-md shadow-sm"
       />
       <ErrorMessage
         name="regularPrice"
@@ -60,7 +60,7 @@
         id="disc"
         name="discount"
         type="number"
-        class="border border-gray-200 p-1 rounded-md shadow-sm"
+        class="border dark:bg-gray-800 dark:border-gray-600 border-gray-200 p-1 rounded-md shadow-sm"
       />
       <ErrorMessage name="discount" class="text-red-700 pl-2"></ErrorMessage>
     </div>
@@ -70,7 +70,7 @@
         id="desc"
         name="description"
         type="text"
-        class="border border-gray-200 p-1 rounded-md shadow-sm"
+        class="border dark:bg-gray-800 dark:border-gray-600 border-gray-200 p-1 rounded-md shadow-sm"
       />
       <ErrorMessage name="description" class="text-red-700 pl-2"></ErrorMessage>
     </div>
@@ -90,7 +90,7 @@
     <div class="flex justify-end gap-3">
       <button
         @click.prevent="modalStore.reset"
-        class="border-2 border-gray-600 px-3 py-2 rounded"
+        class="border-2 border-gray-800 dark:border-gray-100 px-3 py-2 rounded"
       >
         Cancel
       </button>

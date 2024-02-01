@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid  grid-cols-10 bg-gray-50 border-t border-gray-200 items-center"
+    class="grid  grid-cols-10 bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 border-t border-gray-200 items-center"
   >
     <div class="col-span-1 pr-3 py-1">
       <img :src="cabin.image" />

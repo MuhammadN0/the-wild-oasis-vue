@@ -1,13 +1,13 @@
 <template>
   <h2 class="text-lg mb-3">Update user data</h2>
-  <Form @submit="onSubmit" class="bg-gray-50 p-10 rounded-lg mb-5">
+  <Form @submit="onSubmit" class="bg-gray-50 dark:bg-gray-700 dark:text-gray-100 p-10 rounded-lg mb-5">
     <div class="grid items-center grid-cols-4 border-b py-3">
       <label for="email">Email address</label>
       <Field
         type="email"
         name="email"
         disabled
-        class="bg-gray-200 border rounded px-2 py-1 text-gray-400 cursor-not-allowed"
+        class="bg-gray-200 border dark:bg-gray-400 dark:text-gray-100 dark:border-gray-500 rounded px-2 py-1 text-gray-400 cursor-not-allowed"
         :value="auth.currentUser.email"
       />
     </div>
@@ -15,7 +15,7 @@
       <label for="name">Full name</label>
       <Field
         type="text"
-        class="rounded border px-2 py-1"
+        class="rounded dark:bg-gray-700 dark:border-gray-500 border px-2 py-1"
         id="name"
         name="name"
         :value="auth.currentUser.displayName"

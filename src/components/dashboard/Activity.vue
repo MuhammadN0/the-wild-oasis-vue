@@ -1,6 +1,7 @@
 <template>
   <div
     class="grid items-center first-of-type:border-t border-b py-2 grid-cols-6 gap-3 text-sm"
+    :class="{'border-gray-500' : darkmodeStore.isDarkMode}"
   >
     <span
       class="text-[10px] font-semibold uppercase flex justify-center rounded-full"
@@ -39,6 +40,8 @@ import useGuestsStore from "@/stores/guests";
 import useBookingsStore from '@/stores/bookings';
 import { computed } from "vue";
 import { useRouter } from "vue-router";
+import useDarkmode from '@/stores/darkmode'
+const darkmodeStore = useDarkmode()
 const { booking } = defineProps(["booking"]);
 const guestsStore = useGuestsStore();
 const bookingsStore = useBookingsStore()

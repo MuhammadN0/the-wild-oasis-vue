@@ -2,6 +2,7 @@
   <nav
     class="bg-gray-50 col-span-5 border-b border-b-gray-200 flex items-center justify-end px-14 gap-8"
     v-if="auth.currentUser"
+    :class="{'bg-gray-700 border-b-gray-600 text-gray-50' : darkmodeStore.isDarkMode}"
   >
     <div class="flex items-center gap-2">
       <div class="w-9 rounded-full overflow-hidden">
@@ -17,15 +18,16 @@
     </div>
     <div class="flex items-center gap-3">
       <RouterLink
-        class="p-2 hover:bg-gray-200 rounded"
+        class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded"
         :to="{ name: 'account' }"
       >
         <i class="fa-solid fa-user fa-lg text-violet-600"></i>
       </RouterLink>
-      <button class="p-2 hover:bg-gray-200 rounded">
-        <i class="fa-solid fa-moon fa-lg text-violet-600"></i>
+      <button @click.prevent="darkmodeStore.toggleDarkMode" class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
+        <i v-if="!darkmodeStore.isDarkMode" class="fa-solid fa-moon fa-lg text-violet-600"></i>
+        <i v-else class="fa-solid fa-sun fa-lg text-violet-600"></i>
       </button>
-      <button @click.prevent="logout" class="p-2 hover:bg-gray-200 rounded">
+      <button @click.prevent="logout" class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
         <i class="fa-solid fa-right-from-bracket fa-lg text-violet-600"></i>
       </button>
     </div>
@@ -33,9 +35,12 @@
 </template>
 
 <script setup>
+import useDarkmode from '@/stores/darkmode'
 import { auth } from "@/firebase/config";
-async function logout(){
+
+async function logout() {
   await auth.signOut();
-  window.location.reload()
+  window.location.reload();
 }
+const darkmodeStore = useDarkmode();
 </script>

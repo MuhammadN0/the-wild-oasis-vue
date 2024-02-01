@@ -1,11 +1,11 @@
 <template>
   <h2 class="text-lg mb-3">Update user data</h2>
-  <Form :validation-schema="schema" @submit="onSubmit" class="bg-gray-50 p-10 rounded-lg mb-5">
+  <Form :validation-schema="schema" @submit="onSubmit" class="bg-gray-50 dark:bg-gray-700 dark:text-gray-100 p-10 rounded-lg mb-5">
     <div class="grid items-center grid-cols-4 border-b py-3 gap-4">
       <label for="password">Password</label>
       <Field
         type="password"
-        class="rounded border px-2 py-1"
+        class="rounded border dark:bg-gray-700 dark:border-gray-500 px-2 py-1"
         id="password"
         name="password"
         :disabled="isLoading"
@@ -17,7 +17,7 @@
       <label for="confirmpassword">Confirm password</label>
       <Field
       type="password"
-      class="rounded border px-2 py-1"
+      class="rounded border dark:bg-gray-700 dark:border-gray-500 px-2 py-1"
       id="confirmpassword"
       name="confirmpassword"
         :disabled="isLoading"
@@ -28,7 +28,7 @@
     <div class="flex justify-end gap-3">
       <button
       type="reset"
-        class="px-3 py-2 border-2 border-gray-800 bg-transparent rounded"
+        class="px-3 py-2 border-2 dark:border-gray-100 border-gray-800 bg-transparent rounded"
         :disabled="isLoading"
         :class="{'cursor-not-allowed' : isLoading}"
       >

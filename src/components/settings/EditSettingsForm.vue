@@ -1,6 +1,6 @@
 <template>
   <div v-if="settings">
-    <form class="bg-gray-50 p-12 rounded">
+    <form class="bg-gray-50 dark:bg-gray-700 text-gray-100 p-12 rounded">
       <div
         class="grid grid-cols-3 gap-3 border-b border-gray-200 py-4 items-center"
       >
@@ -8,7 +8,7 @@
         <input
           name="minNights"
           id="minNights"
-          class="border border-gray-300 rounded p-1 focus:outline-violet-600"
+          class="border dark:bg-gray-700 dark:border-gray-500 border-gray-300 rounded p-1 focus:outline-violet-600"
           type="number"
           :value="settings.minNights"
           :disabled="settingsStore.isLoading"
@@ -23,7 +23,7 @@
         <input
           name="maxNights"
           id="maxNights"
-          class="border border-gray-300 rounded p-1 focus:outline-violet-600"
+          class="border dark:bg-gray-700 dark:border-gray-500 border-gray-300 rounded p-1 focus:outline-violet-600"
           type="number"
           :value="settings.maxNights"
           :disabled="settingsStore.isLoading"
@@ -40,7 +40,7 @@
           id="maxGuests"
           type="number"
           :value="settings.maxGuests"
-          class="border border-gray-300 rounded p-1 focus:outline-violet-600"
+          class="border dark:bg-gray-700 dark:border-gray-500 border-gray-300 rounded p-1 focus:outline-violet-600"
           :disabled="settingsStore.isLoading"
           :class="{'bg-slate-300 cursor-not-allowed': settingsStore.isLoading}"
           @blur="handleBlur"
@@ -51,7 +51,7 @@
         <input
           name="breakfastPrice"
           id="breakfastPrice"
-          class="border border-gray-300 rounded p-1 focus:outline-violet-600"
+          class="border dark:bg-gray-700 dark:border-gray-500 border-gray-300 rounded p-1 focus:outline-violet-600"
           type="number"
           :value="settings.breakfastPrice"
           :disabled="settingsStore.isLoading"

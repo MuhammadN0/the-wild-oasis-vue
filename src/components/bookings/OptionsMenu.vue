@@ -1,17 +1,17 @@
 <template>
   <div
-    class="absolute w-52 right-0 text-sm z-10 bg-white rounded border-gray-200 border p-2"
+    class="absolute w-52 right-0 text-sm z-10 bg-white rounded border-gray-200 border p-2 dark:bg-gray-800"
   >
     <button
       @click.prevent="handleSeeDetails"
-      class="flex w-full items-center gap-2 hover:bg-gray-100 px-3 py-2 border-b"
+      class="flex w-full items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 border-b"
     >
       <i class="fa-solid fa-eye"></i>
       <span>See details</span>
     </button>
     <button
       @click.prevent="handleCheckIn"
-      class="flex w-full items-center gap-2 hover:bg-gray-100 px-3 py-2 border-b"
+      class="flex w-full items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 border-b"
       v-if="booking.status === 'unconfirmed'"
     >
     <i class="fa-solid fa-arrow-down"></i>
@@ -19,7 +19,7 @@
     </button>
     <button
       @click.prevent="handleCheckout"
-      class="flex w-full items-center gap-2 hover:bg-gray-100 px-3 py-2 border-b"
+      class="flex w-full items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 border-b"
       v-else-if="booking.status === 'checked-in'"
     >
     <i class="fa-solid fa-arrow-up"></i>
@@ -27,7 +27,7 @@
     </button>
     <button
       @click.prevent="handleDelete"
-      class="flex w-full items-center gap-2 hover:bg-gray-100 px-3 py-2 "
+      class="flex w-full items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 "
     >
       <i class="fa-solid fa-trash text-red-600"></i>
       <span>Delete booking</span>
