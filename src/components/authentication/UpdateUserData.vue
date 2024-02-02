@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-lg mb-3">Update user data</h2>
+  <h2 class="text-lg mb-3 dark:text-gray-100">Update user data</h2>
   <Form @submit="onSubmit" class="bg-gray-50 dark:bg-gray-700 dark:text-gray-100 p-10 rounded-lg mb-5">
     <div class="grid items-center grid-cols-4 border-b py-3">
       <label for="email">Email address</label>

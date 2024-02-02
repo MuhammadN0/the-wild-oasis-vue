@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-3xl font-bold mb-10">Update your profile</h1>
+    <h1 class="text-3xl font-bold mb-10 dark:text-gray-100">Update your profile</h1>
     <UpdateUserData />
     <UpdatePassword />
   </div>
