@@ -1,6 +1,6 @@
 <template>
   <div v-if="settings">
-    <form class="bg-gray-50 dark:bg-gray-700 text-gray-100 p-12 rounded">
+    <form class="bg-gray-50 dark:bg-gray-700 dark:text-gray-100 p-12 rounded">
       <div
         class="grid grid-cols-3 gap-3 border-b border-gray-200 py-4 items-center"
       >

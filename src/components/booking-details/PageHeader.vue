@@ -1,6 +1,6 @@
 <template>
   <header class="mb-12">
-    <div class="justify-between text-gray-800 items-center flex">
+    <div class="justify-between dark:text-gray-100 text-gray-800 items-center flex">
       <h1 class="text-3xl flex gap-3 items-center font-bold">
         {{ route.path.split('/')[1] === 'booking' ? 'Booking' : 'Check in'
         }}<span class="text-sm text-gray-400">#{{ route.params.id }}</span>

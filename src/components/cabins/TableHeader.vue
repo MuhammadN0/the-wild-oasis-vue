@@ -26,7 +26,7 @@
             With disctount
           </button>
         </div>
-        <select v-model="sort" class="px-5 dark:bg-gray-700 text-gray-100">
+        <select v-model="sort" class="px-5 dark:bg-gray-700 dark:text-gray-100">
           <option value="name|atz">Sort by Name (A-Z)</option>
           <option value="name|zta">Sort by Name (Z-A)</option>
           <option value="price|lowFirst">Sort by Price (Low first)</option>

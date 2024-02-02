@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-xl mb-5 overflow-hidden bg-gray-50">
+  <div class="rounded-xl mb-5 overflow-hidden bg-gray-50 dark:bg-gray-700 dark:text-gray-100">
     <header
       class="text-lg bg-violet-600 text-violet-200 px-8 py-6 bg flex items-center justify-between"
     >
@@ -59,7 +59,7 @@
   >
     <button
       @click.prevent="router.go(-1)"
-      class="rounded px-3 py-2 border border-gray-800"
+      class="rounded px-3 py-2 border dark:border-gray-600 dark:text-gray-100 border-gray-800"
     >
       Back
     </button>
@@ -102,7 +102,7 @@
         }}.00</label
       >
     </div>
-    <div class="bg-gray-50 flex items-center gap-3 px-6 py-6 mb-6">
+    <div class="bg-gray-50 dark:bg-gray-700 flex items-center gap-3 px-6 py-6 mb-6">
       <input
         class="accent-violet-600 scale-150"
         type="checkbox"
@@ -111,7 +111,7 @@
         :class="{ 'cursor-not-allowed': isPaid }"
         id="paid"
       />
-      <label class="flex-1"
+      <label class="flex-1 "
         >I confirm that {{ guestName }} Paid a full price of ${{
           booking.hasBreakfast
             ? booking.totalPrice
@@ -128,7 +128,7 @@
     >
       <button
         @click.prevent="router.go(-1)"
-        class="rounded px-3 py-2 border border-gray-800"
+        class="rounded px-3 py-2 border border-gray-800 dark:border-gray-600 dark:text-gray-100"
       >
         Back
       </button>

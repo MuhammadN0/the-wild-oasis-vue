@@ -4,7 +4,7 @@
       modalStore.state === 'addingCabin' || modalStore.state === 'editingCabin'
     "
     @submit="submitForm"
-    class="bg-gray-50 p-10 rounded-lg dark:bg-gray-800 text-gray-100 shadow-xl z-50"
+    class="bg-gray-50 p-10 rounded-lg dark:bg-gray-800 dark:text-gray-100 shadow-xl z-50"
     :validation-schema="schema"
     :initial-values="
       modalStore.state === 'editingCabin' && modalStore.currentCabin

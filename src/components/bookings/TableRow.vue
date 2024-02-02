@@ -1,6 +1,6 @@
 <template v-if="cabinsStore.cabins.length">
   <div
-    class="grid grid-cols-10 bg-gray-50 border-t border-gray-200 items-center py-4 dark:bg-gray-700 dark:border-gray-600 text-gray-100"
+    class="grid text-gray-800 grid-cols-10 bg-gray-50 border-t border-gray-200 items-center py-4 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
   >
     <div class="col-span-1 sono font-semibold px-4 py-1">
       {{ cabinName }}

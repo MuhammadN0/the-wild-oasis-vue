@@ -11,7 +11,7 @@
     alt="the wild oasis logo"
     class="w-40 mb-4"
   />
-  <h1 class="text-3xl mb-3">Log in to your account</h1>
+  <h1 class="text-3xl mb-3 dark:text-gray-100">Log in to your account</h1>
   <Form
     :initial-values="{ email: 'example@email.com', password: '0123456789' }"
     @submit="onSubmit"
