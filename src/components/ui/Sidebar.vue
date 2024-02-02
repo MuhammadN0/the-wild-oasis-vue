@@ -51,12 +51,12 @@
         </li>
       </ul>
     </nav>
-    <!-- <Uploader /> -->
+    <Uploader />
   </aside>
 </template>
 
 <script setup>
-// import Uploader from '@/data/Uploader.vue'
+import Uploader from '@/data/Uploader.vue'
 import useDarkmode from "@/stores/darkmode";
 const darkmodeStore = useDarkmode();
 </script>

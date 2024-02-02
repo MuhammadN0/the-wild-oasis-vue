@@ -26,7 +26,7 @@
         class="rounded border px-2 py-1 dark:bg-gray-700 dark:border-gray-500"
       />
     </div>
-    <div class="flex w-[350px] flex-col items-stretch gap-2 mb-6">
+    <div class="flex w-[370px] flex-col items-stretch gap-2 mb-6">
       <label class="text-sm" for="password">Password</label>
       <Field
         type="password"
