@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute w-52 right-0 text-sm z-10 bg-white rounded border-gray-200 border p-2 dark:bg-gray-800"
+    class="absolute w-52 right-0 text-sm z-50 bg-white rounded border-gray-200 border p-2 dark:bg-gray-800"
   >
     <button
       @click.prevent="handleSeeDetails"

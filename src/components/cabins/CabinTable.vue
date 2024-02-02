@@ -1,6 +1,6 @@
 <template>
   <TableHeader />
-  <div class="rounded-lg overflow-hidden border mb-3 border-gray-200 dark:border-gray-600 ">
+  <div class="rounded-lg overflow-visible border mb-3 border-gray-200 dark:border-gray-600 ">
     <!-- Table -->
     <div class="bg-gray-100 dark:bg-gray-800 dark:text-gray-100  grid grid-cols-10 uppercase py-3">
       <!-- Real Table  header -->
