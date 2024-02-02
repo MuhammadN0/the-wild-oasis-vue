@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 *{
-  transition-property: color, background-color;
+  transition-property: background-color;
   transition-duration: 300ms;
 }
 body{
