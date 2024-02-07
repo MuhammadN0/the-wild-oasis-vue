@@ -29,6 +29,13 @@ export default defineStore("bookings", {
         this.isLoading = false;
       }
     },
+    async createBooking(data) {
+      try {
+        await db.collection('bookings').add(data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    },
     async checkIn(id, data) {
       this.isLoading = true;
       await db

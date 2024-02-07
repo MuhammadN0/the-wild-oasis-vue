@@ -25,10 +25,11 @@ function requireNoAuth(to, from, next) {
     next({ name: "dashboard" });
   }
 }
-console.log(document.documentElement.classList.contains('dark'));
+console.log(document.documentElement.classList.contains("dark"));
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  linkExactActiveClass: "[&>i]:text-violet-600 text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-gray-100",
+  linkExactActiveClass:
+    "[&>i]:text-violet-600 text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-gray-100",
   routes: [
     {
       path: "/dashboard",

@@ -26,17 +26,22 @@
       No bookings to show... start adding bookings.
     </div>
   </div>
-  <!-- <button
-    @click.prevent=""
+  <button
+    @click.prevent="handleNewBooking"
     class="bg-violet-600 text-white text-sm rounded-md px-3 py-2 hover:bg-violet-800"
   >
     Add new booking
-  </button> -->
+  </button>
 </template>
 
 <script setup>
 import Spinner from '@/components/ui/Spinner.vue';
 import TableRow from './TableRow.vue';
 import useBookingsStore from '@/stores/bookings';
+import useModal from '@/stores/modal'
+const modalStore = useModal();
 const bookingsStore = useBookingsStore();
+function handleNewBooking(){
+modalStore.startAddBooking();
+}
 </script>

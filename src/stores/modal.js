@@ -17,6 +17,10 @@ export default defineStore('modal', {
       this.currentCabin = null;
       this.deleteHandler = () => {};
     },
+    startAddBooking(){
+      this.state = 'addingBooking'
+      this.isOpen = true
+    },
     startAddCabin() {
       this.state = 'addingCabin';
       this.isOpen = true;

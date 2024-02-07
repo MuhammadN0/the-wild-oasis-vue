@@ -89,20 +89,21 @@
   <template v-if="route.path.split('/')[1] === 'checkin'">
     <div
       v-if="!booking.hasBreakfast"
-      class="bg-gray-50 flex items-center gap-3 px-6 py-6 mb-6"
+      class="bg-gray-50 dark:bg-gray-700 dark:text-gray-100 flex items-center gap-3 px-6 py-6 mb-6"
     >
       <input
         class="accent-violet-600 scale-150"
         type="checkbox"
         v-model="hasBreakfast"
+        id="breakfast"
       />
-      <label class="flex-1"
+      <label for="breakfast" class="flex-1"
         >Include breakfast for ${{
           settingsStore.settings.breakfastPrice * duration
         }}.00</label
       >
     </div>
-    <div class="bg-gray-50 dark:bg-gray-700 flex items-center gap-3 px-6 py-6 mb-6">
+    <div class="bg-gray-50 dark:text-gray-100 dark:bg-gray-700 flex items-center gap-3 px-6 py-6 mb-6">
       <input
         class="accent-violet-600 scale-150"
         type="checkbox"
@@ -111,7 +112,7 @@
         :class="{ 'cursor-not-allowed': isPaid }"
         id="paid"
       />
-      <label class="flex-1 "
+      <label class="flex-1 " for="paid"
         >I confirm that {{ guestName }} Paid a full price of ${{
           booking.hasBreakfast
             ? booking.totalPrice
