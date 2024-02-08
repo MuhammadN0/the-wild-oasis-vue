@@ -22,6 +22,7 @@ import useSettingsStore from "@/stores/settings";
 import useBookingsStore from "@/stores/bookings";
 import useGuestsStore from "@/stores/guests";
 import useDarkmode from "@/stores/darkmode";
+import useFlagsStore from '@/stores/flags'
 import Modal from "./components/ui/Modal.vue";
 import { auth } from "./firebase/config";
 const cabinsStore = useCabinsStore();
@@ -36,4 +37,6 @@ const darkmodeStore = useDarkmode();
 darkmodeStore.isDarkMode
   ? document.documentElement.classList.add("dark")
   : document.documentElement.classList.remove("dark");
+const flagsStore = useFlagsStore();
+flagsStore.getFlags();
 </script>

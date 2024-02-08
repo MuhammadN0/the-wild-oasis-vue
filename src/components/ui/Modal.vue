@@ -11,6 +11,7 @@
         "
       />
       <AddBookingForm v-if="store.state === 'addingBooking'" />
+      <AddGuestForm v-if="store.state === 'addingGuest'"/>
     </div>
   </Teleport>
 </template>
@@ -20,5 +21,6 @@ import useModalStore from '@/stores/modal';
 import AddCabinForm from '../cabins/AddCabinForm.vue';
 import ConfirmDelete from './ConfirmDelete.vue';
 import AddBookingForm from '../bookings/AddBookingForm.vue';
+import AddGuestForm from '../bookings/AddGuestForm.vue';
 const store = useModalStore();
 </script>

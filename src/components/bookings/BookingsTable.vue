@@ -32,6 +32,12 @@
   >
     Add new booking
   </button>
+  <button
+    @click.prevent="handleNewGuest"
+    class="bg-violet-700 text-white text-sm rounded-md px-3 py-2 hover:bg-violet-900 ml-2"
+  >
+    Add new guest
+  </button>
 </template>
 
 <script setup>
@@ -43,5 +49,8 @@ const modalStore = useModal();
 const bookingsStore = useBookingsStore();
 function handleNewBooking(){
 modalStore.startAddBooking();
+}
+function handleNewGuest(){
+  modalStore.startAddGuest();
 }
 </script>

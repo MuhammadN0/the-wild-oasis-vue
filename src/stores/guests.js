@@ -16,6 +16,13 @@ export default defineStore('guests',{
       } finally {
         this.isLoading = false
       }
+    },
+    async addGuest(data) {
+      try{
+        await db.collection('guests').add(data);
+      } catch (err) {
+        console.log(err.message);
+      }
     }
   }
 })

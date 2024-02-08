@@ -44,5 +44,9 @@ export default defineStore('modal', {
       this.resourceName = 'Booking';
       this.deleteHandler = handler;
     },
+    startAddGuest(){
+      this.state = 'addingGuest';
+      this.isOpen = true;
+    }
   },
 });
