@@ -1,6 +1,6 @@
 <template>
   <div
-    class="col-span-2 flex items-center justify-center overflow-hidden bg-gray-50 rounded-md flex-col"
+    class="col-span-4 md:col-span-2 flex items-center justify-center overflow-hidden bg-gray-50 rounded-md flex-col"
     :class="{'bg-gray-700 text-gray-50' : darkmodeStore.isDarkMode}"
   >
     <h3 class="text-left w-full pt-4 px-4 text-lg">Stay duration summary</h3>

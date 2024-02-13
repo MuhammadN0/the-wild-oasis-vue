@@ -1,9 +1,9 @@
 <template>
-  <header class="mb-12">
-    <div class="justify-between text-gray-800 items-center flex">
-      <h1 class="text-3xl font-bold">All bookings</h1>
-      <div class="flex gap-10">
-        <div class="bg-white dark:bg-gray-700 dark:text-gray-100 text-sm font-semibold flex p-1 rounded-md gap-1">
+  <header class="mb-6 md:mb-12">
+    <div class="justify-between text-gray-800 dark:text-gray-100 items-start md:items-center flex flex-col md:flex-row">
+      <h1 class="text-lg md:text-3xl font-bold">All bookings</h1>
+      <div class="flex flex-col gap-3 md:flex-row md:gap-10">
+        <div class="bg-white dark:bg-gray-700 dark:text-gray-100 text-xs md:text-sm font-semibold flex p-1 rounded-md gap-1">
           <button
             class="px-2 py-1 rounded-md hover:bg-violet-600 hover:text-white"
             @click.prevent="changeFilter('all')"
@@ -33,7 +33,7 @@
             Unconfirmed
           </button>
         </div>
-        <select v-model="sort" class="px-5 dark:bg-gray-700 dark:text-gray-100">
+        <select v-model="sort" class="px-5 text-sm md:text-md dark:bg-gray-700 dark:text-gray-100">
           <option value="date|recent">Sort by date (recent first)</option>
           <option value="date|early">Sort by date (earlier first)</option>
           <option value="amount|highFirst">Sort by amount (high first)</option>

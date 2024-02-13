@@ -1,5 +1,7 @@
 <template>
-  <div class="rounded-xl mb-5 overflow-hidden bg-gray-50 dark:bg-gray-700 dark:text-gray-100">
+  <div
+    class="rounded-xl mb-5 overflow-hidden bg-gray-50 dark:bg-gray-700 dark:text-gray-100"
+  >
     <header
       class="text-lg bg-violet-600 text-violet-200 px-8 py-6 bg flex items-center justify-between"
     >
@@ -12,7 +14,7 @@
       </div>
       <div>
         {{ startDate }} ({{
-          isBookingBefore ? distance + ' Ago' : 'In ' + distance
+          isBookingBefore ? distance + " Ago" : "In " + distance
         }}) - {{ endDate }}
       </div>
     </header>
@@ -34,18 +36,21 @@
       <p class="flex gap-3 items-center mb-7">
         <i class="text-violet-600 fa-regular fa-circle-check"></i>
         <span class="font-semibold">Breakfast Included?</span>
-        <span>{{ booking.hasBreakfast ? 'Yes' : 'No' }}</span>
+        <span>{{ booking.hasBreakfast ? "Yes" : "No" }}</span>
       </p>
       <div
-        class="bg-yellow-100 text-yellow-700 flex items-center justify-between p-5 rounded font-semibold mb-7"
-        :class="{ 'bg-green-300 text-green-700': booking.isPaid }"
+        class="flex items-center justify-between p-5 rounded font-semibold mb-7"
+        :class="{
+          ' bg-green-300 text-green-700': booking.isPaid,
+          'bg-yellow-100 text-yellow-700': !booking.isPaid,
+        }"
       >
         <p>
           <i class="fa-solid fa-money-bills"></i> Total price
           <span>${{ booking.totalPrice }}.00</span>
         </p>
         <p class="uppercase">
-          {{ booking.isPaid ? 'Paid' : 'Will pay at property' }}
+          {{ booking.isPaid ? "Paid" : "Will pay at property" }}
         </p>
       </div>
       <p class="flex items-center justify-end text-xs text-gray-500">
@@ -103,7 +108,9 @@
         }}.00</label
       >
     </div>
-    <div class="bg-gray-50 dark:text-gray-100 dark:bg-gray-700 flex items-center gap-3 px-6 py-6 mb-6">
+    <div
+      class="bg-gray-50 dark:text-gray-100 dark:bg-gray-700 flex items-center gap-3 px-6 py-6 mb-6"
+    >
       <input
         class="accent-violet-600 scale-150"
         type="checkbox"
@@ -112,7 +119,7 @@
         :class="{ 'cursor-not-allowed': isPaid }"
         id="paid"
       />
-      <label class="flex-1 " for="paid"
+      <label class="flex-1" for="paid"
         >I confirm that {{ guestName }} Paid a full price of ${{
           booking.hasBreakfast
             ? booking.totalPrice
@@ -125,7 +132,10 @@
     </div>
     <div
       class="flex items-center justify-end gap-5"
-      v-if="route.path.split('/')[1] === 'checkin' && booking.status ==='unconfirmed'"
+      v-if="
+        route.path.split('/')[1] === 'checkin' &&
+        booking.status === 'unconfirmed'
+      "
     >
       <button
         @click.prevent="router.go(-1)"
@@ -147,20 +157,20 @@
 </template>
 
 <script setup>
-import useBookingsStore from '@/stores/bookings';
-import useGuestsStore from '@/stores/guests';
-import useCabinsStore from '@/stores/cabins';
-import useModalStore from '@/stores/modal';
-import useSettingsStore from '@/stores/settings';
-import Spinner from '@/components/ui/Spinner.vue';
-import { useRoute, useRouter } from 'vue-router';
-import { computed, ref, watch } from 'vue';
+import useBookingsStore from "@/stores/bookings";
+import useGuestsStore from "@/stores/guests";
+import useCabinsStore from "@/stores/cabins";
+import useModalStore from "@/stores/modal";
+import useSettingsStore from "@/stores/settings";
+import Spinner from "@/components/ui/Spinner.vue";
+import { useRoute, useRouter } from "vue-router";
+import { computed, ref, watch } from "vue";
 import {
   format,
   formatDistanceToNow,
   isBefore,
   differenceInDays,
-} from 'date-fns';
+} from "date-fns";
 const route = useRoute();
 const router = useRouter();
 const bookingId = route.params.id;
@@ -201,16 +211,16 @@ const guestFlag = computed(
       .countryFlag
 );
 const startDate = computed(() =>
-  format(booking.value.startDate, 'iii, MMM dd yyyy')
+  format(booking.value.startDate, "iii, MMM dd yyyy")
 );
 const endDate = computed(() =>
-  format(booking.value.endDate, 'iii, MMM dd yyyy')
+  format(booking.value.endDate, "iii, MMM dd yyyy")
 );
 const createdAt = computed(() =>
-  format(booking.value.created_at, 'iii, MMM dd yyyy h:m b')
+  format(booking.value.created_at, "iii, MMM dd yyyy h:m b")
 );
 const distance = computed(() =>
-  formatDistanceToNow(new Date(booking.value.startDate)).replace('about', '')
+  formatDistanceToNow(new Date(booking.value.startDate)).replace("about", "")
 );
 const isBookingBefore = computed(() =>
   isBefore(booking.value.startDate, new Date())
@@ -222,13 +232,13 @@ function handleDelete() {
   modalStore.startDeleteBooking(booking, async function () {
     await bookingsStore.deleteBooking(booking.value.id);
     await bookingsStore.getBookings();
-    router.push({ name: 'bookings' });
+    router.push({ name: "bookings" });
     modalStore.reset();
   });
 }
 async function handleCheckIn() {
   await bookingsStore.checkIn(booking.value.id, {
-    status: 'checked-in',
+    status: "checked-in",
     isPaid: true,
     hasBreakfast: hasBreakfast.value,
     totalPrice: booking.value.hasBreakfast
@@ -238,10 +248,10 @@ async function handleCheckIn() {
           ? +settingsStore.settings.breakfastPrice * duration.value
           : 0),
   });
-  router.push({name:'bookings',query:{filter:'checked-in'}})
+  router.push({ name: "bookings", query: { filter: "checked-in" } });
 }
 async function handleCheckout() {
-  await bookingsStore.checkOut(booking.value.id)
-  router.push({name:'bookings',query:{filter:'checked-out'}})
+  await bookingsStore.checkOut(booking.value.id);
+  router.push({ name: "bookings", query: { filter: "checked-out" } });
 }
 </script>

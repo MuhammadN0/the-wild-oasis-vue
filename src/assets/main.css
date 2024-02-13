@@ -1,16 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
+* {
   transition-property: background-color;
   transition-duration: 300ms;
 }
-body{
-  font-family: Poppins
+body {
+  font-family: Poppins;
 }
 .sono {
   font-family: Sono;
 }
-.grid-rows-custom{
-  grid-template-rows: auto 340px auto;
+
+.grid-rows-custom {
+  grid-template-rows: auto auto 340px 340px 340px;
+}
+
+@media (min-width: 768px) {
+  .grid-rows-custom {
+    grid-template-rows: auto 340px auto;
+  }
 }

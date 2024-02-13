@@ -75,7 +75,7 @@ onMounted(async () => {
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         aspectRatio: 3.5,
       },
     });

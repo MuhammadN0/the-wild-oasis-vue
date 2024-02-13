@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="bg-gray-50 col-span-5 border-b border-b-gray-200 flex items-center justify-end px-14 gap-8"
+    class="bg-gray-50 col-span-5 border-b border-b-gray-200 flex items-center justify-between md:justify-end px-4 md:px-14 gap-8"
     v-if="auth.currentUser"
     :class="{'bg-gray-700 border-b-gray-600 text-gray-50' : darkmodeStore.isDarkMode}"
   >

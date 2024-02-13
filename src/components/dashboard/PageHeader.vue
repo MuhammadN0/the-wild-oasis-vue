@@ -1,9 +1,8 @@
 <template>
-  <header class="mb-12">
-    <div class="justify-between text-gray-800 items-center flex" :class="{'text-white' : darkmodeStore.isDarkMode}">
-      <h1 class="text-3xl font-bold">Dashboard</h1>
-      <div class="flex gap-10">
-        <div class="bg-white text-sm font-semibold flex p-1 rounded-md gap-1 dark:bg-gray-700" :class="{'bg-gray-700' : darkmodeStore.isDarkMode}">
+  <header class="mb-6 md:mb-12">
+    <div class="justify-between text-gray-800 items-start flex flex-col md:flex-row md:items-center" :class="{'text-white' : darkmodeStore.isDarkMode}">
+      <h1 class="md:text-3xl text-xl font-bold">Dashboard</h1>
+        <div class="bg-white text-xs md:text-sm font-semibold flex p-1 rounded-md gap-1 dark:bg-gray-700" :class="{'bg-gray-700' : darkmodeStore.isDarkMode}">
           <button
             class="px-2 py-1 rounded-md hover:bg-violet-600 hover:text-white"
             @click.prevent="changeFilter('7')"
@@ -26,7 +25,6 @@
             Last 90 Days
           </button>
         </div>
-      </div>
     </div>
   </header>
 </template>

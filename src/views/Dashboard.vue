@@ -1,7 +1,7 @@
 <template>
   <template v-if="!condition">
     <PageHeader />
-    <div class="grid grid-cols-4 grid-rows-custom gap-5">
+    <div class="grid grid-cols-4 grid-rows-custom gap-2 md:gap-5">
       <Stats />
       <TodaysActivity/>
       <PieChart/>
