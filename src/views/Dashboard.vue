@@ -3,9 +3,9 @@
     <PageHeader />
     <div class="grid grid-cols-4 grid-rows-custom gap-2 md:gap-5">
       <Stats />
-      <TodaysActivity/>
-      <PieChart/>
-      <LineChart/>
+      <TodaysActivity />
+      <PieChart />
+      <LineChart />
     </div>
   </template>
   <div class="flex items-center justify-center" v-else>
